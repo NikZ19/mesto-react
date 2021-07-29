@@ -1,4 +1,4 @@
-export function PopupImage({ card, onClose }) {
+export function ImagePopup({ card, onClose }) {
   return (
     <div className={`popup popup_type_photo-scale ${card.name && 'popup_opened'}`} >
       <div className="popup__photo-container">

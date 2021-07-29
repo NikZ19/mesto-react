@@ -1,6 +1,6 @@
 import { PopupWithForm } from '../PopupWithForm/PopupWithForm.js';
 
-export function PopupEditAvatar({ isOpen, onClose }) {
+export function EditAvatarPopup({ isOpen, onClose }) {
   return (
     <PopupWithForm
       name='avatar'

@@ -1,6 +1,6 @@
 import { PopupWithForm } from '../PopupWithForm/PopupWithForm.js';
 
-export function PopupEditProfile({ isOpen, onClose }) {
+export function EditProfilePopup({ isOpen, onClose }) {
   return (
     <PopupWithForm
       name='edit'

@@ -1,6 +1,6 @@
 import { PopupWithForm } from "../PopupWithForm/PopupWithForm";
 
-export function PopupConfirm({ isOpen, onClose }) {
+export function ConfirmPopup({ isOpen, onClose }) {
   return (
     <PopupWithForm
       name='confirm'

@@ -2,11 +2,11 @@ import '../index.css';
 import { Header } from './Header/Header.js';
 import { Main } from './Main/Main.js';
 import { Footer } from './Footer/Footer.js';
-import { PopupEditProfile } from './PopupEditProfile/PopupEditProfile.js';
-import { PopupEditAvatar } from './PopupEditAvatar/PopupEditAvatar.js';
-import { PopupAddPlace } from './PopupAddPlace/PopupAddPlace.js';
-import { PopupImage } from './PopupImage/PopupImage.js';
-import { PopupConfirm } from './PopupConfirm/PopupConfirm.js';
+import { EditProfilePopup } from './EditProfilePopup/EditProfilePopup.js';
+import { EditAvatarPopup } from './EditAvatarPopup/EditAvatarPopup.js';
+import { AddPlacePopup } from './AddPlacePopup/AddPlacePopup.js';
+import { ImagePopup } from './ImagePopup/ImagePopup.js';
+import { ConfirmPopup } from './ConfirmPopup/ConfirmPopup.js';
 import React from 'react';
 
 
@@ -58,11 +58,11 @@ function App() {
         onDeleteCard={handleTrashClick}
         onCardClick={handleCardClick} />
       <Footer />
-      <PopupEditProfile isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} />
-      <PopupEditAvatar isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} />
-      <PopupAddPlace isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} />
-      <PopupImage card={selectedCard} onClose={closeAllPopups} />
-      <PopupConfirm isOpen={isConfirmPopupOpen} onClose={closeAllPopups} />
+      <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} />
+      <EditAvatarPopup isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} />
+      <AddPlacePopup isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} />
+      <ImagePopup card={selectedCard} onClose={closeAllPopups} />
+      <ConfirmPopup isOpen={isConfirmPopupOpen} onClose={closeAllPopups} />
 
     </div>
   );

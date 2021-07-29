@@ -1,6 +1,6 @@
 import { PopupWithForm } from '../PopupWithForm/PopupWithForm.js';
 
-export function PopupAddPlace({ isOpen, onClose }) {
+export function AddPlacePopup({ isOpen, onClose }) {
   return (
     <PopupWithForm
       name='add'
