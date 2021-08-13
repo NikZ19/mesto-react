@@ -1,5 +1,5 @@
 import React from 'react';
-import { PopupWithForm } from '../PopupWithForm/PopupWithForm.js';
+import { PopupWithForm } from './PopupWithForm.js';
 
 
 export function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {

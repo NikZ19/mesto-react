@@ -1,14 +1,14 @@
-import { Header } from './Header/Header.js';
-import { Main } from './Main/Main.js';
-import { Footer } from './Footer/Footer.js';
-import { EditProfilePopup } from './EditProfilePopup/EditProfilePopup.js';
-import { EditAvatarPopup } from './EditAvatarPopup/EditAvatarPopup.js';
-import { AddPlacePopup } from './AddPlacePopup/AddPlacePopup.js';
-import { ImagePopup } from './ImagePopup/ImagePopup.js';
-// import { ConfirmPopup } from './ConfirmPopup/ConfirmPopup.js';
+import React from 'react';
+import { Header } from './Header.js';
+import { Main } from './Main.js';
+import { Footer } from './Footer.js';
+import { EditAvatarPopup } from './EditAvatarPopup.js';
+import { EditProfilePopup } from './EditProfilePopup.js';
+import { AddPlacePopup } from './AddPlacePopup.js';
+import { ImagePopup } from './ImagePopup.js';
 import { api } from '../utils/Api.js'
 import { CurrentUserContext } from '../contexts/CurrentUserContext.js'
-import React from 'react';
+// import { ConfirmPopup } from './ConfirmPopup/ConfirmPopup.js';
 
 
 
@@ -32,6 +32,13 @@ function App() {
       .catch(err => console.log(err));
   }, []);
 
+  const [cards, setCards] = React.useState([]);
+
+  React.useEffect(() => {
+    api.getInitialCards().then(data => setCards(data))
+      .catch(err => console.log(err));
+  }, []);
+
   const handleEditProfileClick = () => {
     setIsEditProfilePopupOpen(true);
   };
@@ -43,10 +50,6 @@ function App() {
   const handleAddPlaceClick = () => {
     setIsAddPlacePopupOpen(true);
   };
-
-  // const handleTrashClick = () => {
-  //   setIsConfirmPopupOpen(true);
-  // };
 
   const handleCardClick = (card) => {
     setSelectedCard({ name: card.name, link: card.link })
@@ -76,14 +79,6 @@ function App() {
     // setIsConfirmPopupOpen(false);
     setSelectedCard({})
   };
-
-
-  const [cards, setCards] = React.useState([]);
-
-  React.useEffect(() => {
-    api.getInitialCards().then(data => setCards(data))
-      .catch(err => console.log(err));
-  }, []);
 
   const handleCardLike = (card) => {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
@@ -117,7 +112,6 @@ function App() {
           onEditProfile={handleEditProfileClick}
           onEditAvatar={handleEditAvatarClick}
           onAddPlace={handleAddPlaceClick}
-          // onDeleteCard={handleTrashClick}
           onCardClick={handleCardClick}
           cards={cards}
           onCardLike={handleCardLike}

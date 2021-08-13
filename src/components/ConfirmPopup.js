@@ -1,4 +1,4 @@
-import { PopupWithForm } from "../PopupWithForm/PopupWithForm";
+import { PopupWithForm } from "./PopupWithForm/PopupWithForm";
 
 export function ConfirmPopup({ isOpen, onClose }) {
   return (
