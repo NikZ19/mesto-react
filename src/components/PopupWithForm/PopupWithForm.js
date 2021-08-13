@@ -1,11 +1,11 @@
 
-export function PopupWithForm({ name, title, buttonTitle, children, isOpen, onClose }) {
+export function PopupWithForm({ name, title, buttonTitle, children, isOpen, onClose, onSubmit }) {
 
   return (
     <div className={`popup ${isOpen && 'popup_opened'}`}>
       <div className="popup__container">
         <h2 className="popup__title">{title}</h2>
-        <form className="popup__form" name={`form_${name}`} noValidate>
+        <form className="popup__form" onSubmit={onSubmit} name={`form_${name}`} noValidate>
           {children}
           <button className="popup__save-btn" name="submit_btn_edit" type="submit"
             aria-label="Кнопка сохранить">{buttonTitle}</button>

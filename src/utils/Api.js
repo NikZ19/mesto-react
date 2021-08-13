@@ -24,7 +24,7 @@ class Api {
       .then(response => this._getResponseData(response));
   }
 
-  getInitialProfile() {
+  getUserInfo() {
     return fetch(`${this._baseUrl}/v1/${this._cohort}/users/me`, {
       method: 'GET',
       headers: {
@@ -42,8 +42,8 @@ class Api {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        name: cardData.input_title,
-        link: cardData.input_link
+        name: cardData.title,
+        link: cardData.link
       })
     })
       .then(response => this._getResponseData(response));
@@ -57,8 +57,8 @@ class Api {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        name: userData.input_name,
-        about: userData.input_about
+        name: userData.name,
+        about: userData.about
       })
     })
       .then(response => this._getResponseData(response));
@@ -72,24 +72,23 @@ class Api {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        avatar: link.input_link
+        avatar: link
       })
     })
       .then(response => this._getResponseData(response));
   }
 
-  likeCard(id) {
-    return fetch(`${this._baseUrl}/v1/${this._cohort}/cards/likes/${id}`, {
-      method: 'PUT',
-      headers: {
-        authorization: this._token,
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(response => this._getResponseData(response));
-  }
-
-  removeLikeCard(id) {
+  likeCardToggle(id, isLiked) {
+    if (!isLiked) {
+      return fetch(`${this._baseUrl}/v1/${this._cohort}/cards/likes/${id}`, {
+        method: 'PUT',
+        headers: {
+          authorization: this._token,
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(response => this._getResponseData(response));
+    }
     return fetch(`${this._baseUrl}/v1/${this._cohort}/cards/likes/${id}`, {
       method: 'DELETE',
       headers: {
@@ -99,6 +98,28 @@ class Api {
     })
       .then(response => this._getResponseData(response));
   }
+
+  // likeCard(id) {
+  //   return fetch(`${this._baseUrl}/v1/${this._cohort}/cards/likes/${id}`, {
+  //     method: 'PUT',
+  //     headers: {
+  //       authorization: this._token,
+  //       'Content-Type': 'application/json'
+  //     }
+  //   })
+  //     .then(response => this._getResponseData(response));
+  // }
+
+  // removeLikeCard(id) {
+  //   return fetch(`${this._baseUrl}/v1/${this._cohort}/cards/likes/${id}`, {
+  //     method: 'DELETE',
+  //     headers: {
+  //       authorization: this._token,
+  //       'Content-Type': 'application/json'
+  //     }
+  //   })
+  //     .then(response => this._getResponseData(response));
+  // }
 
   removeCard(id) {
     return fetch(`${this._baseUrl}/v1/${this._cohort}/cards/${id}`, {

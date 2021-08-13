@@ -23,6 +23,7 @@
 @import url(./blocks/places/__item/places__item.css);
 @import url(./blocks/places/__photo/places__photo.css);
 @import url(./blocks/places/__trash/places__trash.css);
+@import url(./blocks/places/__trash/_hidden/places__trash_hidden.css);
 @import url(./blocks/places/__info/places__info.css);
 @import url(./blocks/places/__title/places__title.css);
 @import url(./blocks/places/__like-wrapper/place__like-wrapper.css);
