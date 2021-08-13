@@ -133,8 +133,10 @@ class Api {
   }
 }
 
-export const api = new Api({
+const api = new Api({
   baseUrl: 'https://mesto.nomoreparties.co',
   token: 'cc9b5eea-6347-43e1-8bc0-e5144b330bd4',
   cohort: 'cohort-25'
 });
+
+export default api;
