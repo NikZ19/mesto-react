@@ -25,7 +25,15 @@ export function Main({ onEditProfile, onEditAvatar, onAddPlace, onCardClick, car
       </section>
       <section className="places">
         <ul className="places__items">
-          {cards.map(card => <Card key={card._id} card={card} onCardClick={onCardClick} onCardLike={onCardLike} onCardDelete={onCardDelete} />)}
+          {cards.map(card => (
+            <Card
+              key={card._id}
+              card={card}
+              onCardClick={onCardClick}
+              onCardLike={onCardLike}
+              onCardDelete={onCardDelete} />
+          )
+          )}
         </ul>
       </section>
     </main>
